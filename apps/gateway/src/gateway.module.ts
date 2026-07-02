@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { GatewayService } from './gateway.service';
 import { GatewayController } from './gateway.controller';
+import { ChatGateway } from './presentation/gateways/chat.gateway';
 
 @Module({
   imports: [
@@ -20,6 +21,6 @@ import { GatewayController } from './gateway.controller';
     ]),
   ],
   controllers: [GatewayController],
-  providers: [GatewayService],
+  providers: [GatewayService, ChatGateway],
 })
 export class GatewayModule {}
