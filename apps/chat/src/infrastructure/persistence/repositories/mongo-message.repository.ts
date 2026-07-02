@@ -13,7 +13,7 @@ export class MongoMessageRepository implements IMessageRepository {
   ) {}
 
   async save(message: Message): Promise<Message> {
-    const createdMessage = new this.messageModel(message);
+    const createdMessage = new this.messageModel({ ...message });
     const savedDoc = await createdMessage.save();
 
     return new Message({
